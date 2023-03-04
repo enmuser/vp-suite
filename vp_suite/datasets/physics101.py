@@ -80,7 +80,7 @@ class Physics101Dataset(VPDataset):
         d_path.mkdir(parents=True, exist_ok=True)
         vid_filepaths: [Path] = list(d_path.rglob(f"**/*.mp4"))
         if len(vid_filepaths) == 0:  # no data available -> unpack tar
-            tar_fname = "phys101_v1.0.tar"
+            tar_fname = "phys101_v1.0.zip"
             tar_path = str(d_path / tar_fname)
             if not os.path.exists(tar_path):  # no tar available -> download it
                 URL = f"http://phys101.csail.mit.edu/data/{tar_fname}"
@@ -88,8 +88,8 @@ class Physics101Dataset(VPDataset):
                 download_from_url(URL, tar_path)
 
             print("Extracting data...")
-            import tarfile
-            tar = tarfile.open(tar_path)
+            import zipfile
+            tar = zipfile.ZipFile(tar_path)
             tar.extractall(d_path)
             tar.close()
             os.remove(tar_path)

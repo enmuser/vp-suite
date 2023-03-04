@@ -202,7 +202,8 @@ for i in "${files[@]}"; do
     fullname=$i
   fi
   dst=$TARGET_DIR/$shortname
-	echo "Downloading: "$shortname
+	echo "Downloading: shortname "$shortname
+	echo "Downloading fullname: "$shortname
   wget --no-check-certificate --load-cookies $TMP_COOKIE -q \
    'https://s3.eu-central-1.amazonaws.com/avg-kitti/raw_data/'$fullname -O $dst
   echo "Extracting into: "$dst

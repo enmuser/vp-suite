@@ -259,15 +259,15 @@ def timed_input(description: str, default=None, secs: int = 60):
 
     Returns: The input value (or the default value if input is empty).
     """
-    import signal
-    signal.signal(signal.SIGALRM, alarm_handler)
+    # import signal
+    # signal.signal(signal.SIGALRM, alarm_handler)
     try:
-        signal.alarm(secs)
+        # signal.alarm(secs)
         value = input(f"{description} [{default}]: ") or default
     except TimeOutException:
         print("Time limit reached, using default value...")
         value = default
-    signal.alarm(0)
+    # signal.alarm(0)
     return value
 
 

@@ -47,12 +47,12 @@ class CaltechPedestrianDataset(VPDataset):
             sequences = json.load(frame_counts_file).items()
 
         if self.split == "test":
-            sequences = [(fp, frames) for (fp, frames) in sequences if fp.split("/")[-2] in self.TEST_SETS]
+            sequences = [(fp, frames) for (fp, frames) in sequences if fp.split("\\")[-2] in self.TEST_SETS]
             if len(sequences) < 1:
                 raise ValueError(f"Dataset {self.NAME}: didn't find enough test sequences "
                                  f"-> can't use dataset")
         else:
-            sequences = [(fp, frames) for (fp, frames) in sequences if fp.split("/")[-2] in self.TRAIN_VAL_SETS]
+            sequences = [(fp, frames) for (fp, frames) in sequences if fp.split("\\")[-2] in self.TRAIN_VAL_SETS]
             if len(sequences) < 2:
                 raise ValueError(f"Dataset {self.NAME}: didn't find enough train/val sequences "
                                  f"-> can't use dataset")
