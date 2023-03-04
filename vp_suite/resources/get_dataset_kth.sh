@@ -19,9 +19,8 @@ else
   wget -q $URL -P $TARGET_DIR/processed
   tar -zxf $TARGET_DIR/processed/kth.tar.gz -C $TARGET_DIR/processed/
   rm $TARGET_DIR/processed/kth.tar.gz
-
   for class in $CLASSES; do
-    URL=http://www.nada.kth.se/cvap/actions/"$class".zip
+    URL=http://www.csc.kth.se/cvap/actions/"$class".zip
     echo "Downloading ${URL}"
     wget -q $URL -P $TARGET_DIR/raw
     mkdir $TARGET_DIR/raw/$class
