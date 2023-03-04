@@ -5,7 +5,7 @@
 
 TARGET_DIR=$1
 CLASSES="boxing handclapping handwaving jogging running walking"
-IMG_SIZE=64
+IMG_SIZE=128
 IMG_STR="${IMG_SIZE}x${IMG_SIZE}"
 
 ### DOWNLOAD ###
